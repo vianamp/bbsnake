@@ -6,6 +6,14 @@ __pycache__/
 # C extensions
 *.so
 
+# Snakemake outputs
+metadata
+.done
+.jpg
+.gif
+.png
+.tif
+
 # Distribution / packaging
 .Python
 build/

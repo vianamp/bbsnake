@@ -14,13 +14,12 @@ rule targets:
         expand("data/{sample}.done", sample=img_paths.keys())
         
 rule download_images:
-    input:
-        idx = "{sample}",
-        address = get_address
     output:
         "data/{sample}.done"
+    params:
+        address=get_address
     shell:
         '''
-        wget {input.address} --directory data/
-        touch('data/{wildcards.sample}.done')
+        wget {params.address} --directory data/
+        touch data/{wildcards.sample}.done
         '''
